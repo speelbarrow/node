@@ -1,14 +1,7 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook"
-
-import { FlatCompat } from "@eslint/eslintrc"
-
 import globals from "globals"
 import pluginJs from "@eslint/js"
 import tseslint from "typescript-eslint"
 import stylistic from "@stylistic/eslint-plugin"
-
-const compat = new FlatCompat({ baseDirectory: import.meta.dirname })
 
 export default [pluginJs.configs.recommended, ...tseslint.configs.recommended, {
   languageOptions: {
@@ -19,7 +12,7 @@ export default [pluginJs.configs.recommended, ...tseslint.configs.recommended, {
   },
   rules: {
     "prefer-const": ["error", {
-      destructuring: "all"
+      destructuring: "all",
     }],
 
     "@stylistic/ts/comma-dangle": ["warn", "always-multiline"],
@@ -35,4 +28,4 @@ export default [pluginJs.configs.recommended, ...tseslint.configs.recommended, {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
   },
-}, ...storybook.configs["flat/recommended"]];
+}]
